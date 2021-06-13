@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../../Sec-pract/pract-app/node_modules/axios";
 
-
-
 const Filter = () => {
   const [data, setdata] = useState([]);
   const [product, setProduct] = useState([]);
@@ -27,13 +25,12 @@ const Filter = () => {
    if(button === "All"){
      setProduct()
    }
+
    const filterData =  product.filter((currElem) => {
      return currElem.name === button;
    })
    setProduct(filterData)
  }
-
-
 
   return (
     <div>
@@ -55,7 +52,7 @@ const Filter = () => {
         <h4 className="filter_category">Filter by Category</h4>
       </div>
       <div className="filter_contar">
-        <button className="all">All</button>
+        <button className="all" onClick={() => setProduct(product)}>All</button>
         {data.length &&
           data.map(({ title, id, slug }) => (
             <div>
